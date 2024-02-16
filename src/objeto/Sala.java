@@ -57,6 +57,26 @@ public class Sala {
         return butacasLibres;
     }
 
+    public void mostrarButacas() {
+        System.out.println("Butacas para la Sala " + numId + " - Película: " + pelicula.getTitulo());
+        System.out.println("Butaca libre: -    Butaca ocupada: X");
+        System.out.println("----------------------------");
+
+        for (int i = 0; i < butacas.length; i++) {
+            for (int j = 0; j < butacas[i].length; j++) {
+                if (butacas[i][j].estaOcupada()) {
+                    System.out.print("X "); // Si está ocupada pinta X
+                } else {
+                    System.out.print("- "); // Si está vacía pinta -
+                }
+            }
+            System.out.println();
+        }
+
+        System.out.println("----------------------------");
+        System.out.println("Butacas libres: " + getButacasLibres() + "\n");
+    }
+
     public void reservar(int nFila, int nColumna, String email) {
         butacas[nFila][nColumna].reservar(email);
     }
