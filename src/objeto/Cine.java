@@ -39,6 +39,16 @@ public class Cine {
         }
     }
 
+    public void mostrarSalasYPeliculas() {
+        System.out.println("Cine " + nombre + " Aforo: " + aforo + " Salas: " + salas.length);
+        for (int i = 0; i < salas.length; i++) {
+            System.out.println("Sala " + salas[i].getNumId());
+            System.out.println("  - Película: " + salas[i].getPelicula().getTitulo());
+            System.out.println("  - Duración: " + salas[i].getPelicula().getDuracion() + " minutos");
+            System.out.println("  - Butacas libres: " + salas[i].getButacasLibres() + "\n");
+        }
+    }
+
     public void reservarButaca(int nSala, int nFila, int nColumna, String email) {
         salas[nSala].reservar(nFila, nColumna, email);
     }
