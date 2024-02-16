@@ -15,4 +15,24 @@ public class Sala {
             }
         }
     }
+
+    public int getNumId() {
+        return numId;
+    }
+    public void setNumId(int numId) {
+        this.numId = numId;
+    }
+    public Pelicula getPelicula() {
+        return pelicula;
+    }
+    public void setPelicula(Pelicula pelicula) {
+        this.pelicula = pelicula;
+    }
+    public Butaca[][] getButacas() {
+        return butacas;
+    }
+    public void setButacas(Butaca[][] butacas) {
+        this.butacas = butacas;
+    }
+
 }
