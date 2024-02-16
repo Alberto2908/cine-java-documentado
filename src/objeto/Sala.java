@@ -35,6 +35,28 @@ public class Sala {
         this.butacas = butacas;
     }
 
+    public int getNumButacas() {
+        int butacasTotales = 0;
+        for (int i = 0; i < butacas.length; i++) {
+            for (int j = 0; j < butacas[i].length; j++) {
+                butacasTotales++;
+            }
+        }
+        return butacasTotales;
+    }
+
+    public int getButacasLibres() {
+        int butacasLibres = 0;
+        for (int i = 0; i < butacas.length; i++) {
+            for (int j = 0; j < butacas[i].length; j++) {
+                if (butacas[i][j].estaOcupada() == false) {
+                    butacasLibres++;
+                }
+            }
+        }
+        return butacasLibres;
+    }
+
     public void reservar(int nFila, int nColumna, String email) {
         butacas[nFila][nColumna].reservar(email);
     }
