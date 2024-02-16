@@ -35,4 +35,7 @@ public class Sala {
         this.butacas = butacas;
     }
 
+    public void reservar(int nFila, int nColumna, String email) {
+        butacas[nFila][nColumna].reservar(email);
+    }
 }

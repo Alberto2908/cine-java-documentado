@@ -21,4 +21,9 @@ public class Butaca {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public void reservar(String email) {
+        this.ocupada = true;
+        this.email = email;
+    }
 }

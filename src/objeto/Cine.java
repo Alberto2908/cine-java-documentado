@@ -38,4 +38,8 @@ public class Cine {
             }
         }
     }
+
+    public void reservarButaca(int nSala, int nFila, int nColumna, String email) {
+        salas[nSala].reservar(nFila, nColumna, email);
+    }
 }
