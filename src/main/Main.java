@@ -15,5 +15,13 @@ public class Main {
         Sala sala5 = new Sala(5, new Pelicula("Barbie", 114), 18, 20);
         Sala sala6 = new Sala(6, new Pelicula("Joker", 122), 18, 22);
 
+        cine1.añadirSala(sala1);
+        cine1.añadirSala(sala2);
+        cine1.añadirSala(sala3);
+        cine1.añadirSala(sala4);
+        cine1.añadirSala(sala5);
+        cine1.añadirSala(sala6);
+
+        System.out.println(cine1.salas[2].getPelicula().getTitulo());
     }
 }

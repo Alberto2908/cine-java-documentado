@@ -29,4 +29,13 @@ public class Cine {
     public void setSalas(Sala[] salas) {
         this.salas = salas;
     }
+
+    public void añadirSala(Sala sala) {
+        for (int i = 0; i < salas.length; i++) {
+            if (salas[i] == null) {
+                this.salas[i] = sala;
+                break;
+            }
+        }
+    }
 }
