@@ -10,6 +10,10 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
+        int nSala;
+        int nFila;
+        int nColumna;
+        String email;
         boolean seguir = true;
         int opcion;
 
@@ -39,6 +43,55 @@ public class Main {
                 case 1:
                     cine1.mostrarSalasYPeliculas();
                     break;
+                case 2:
+                    // Solicitar al usuario el número de sala, fila y columna de la butaca
+                    System.out.print("Ingrese el número de sala:");
+                    nSala = scanner.nextInt() - 1;
+                    System.out.print("Ingrese el número de fila:");
+                    nFila = scanner.nextInt() - 1;
+                    System.out.print("Ingrese el número de columna:");
+                    nColumna = scanner.nextInt() - 1;
+
+                    // Verificar que el número de sala sea válido
+                    if (nSala >= 1 && nSala <= cine1.salas.length) {
+
+                        // Verificar que la fila y la columna sean válidas
+                        if (nFila >= 1 && nFila <= cine1.salas[nSala - 1].butacas.length && nColumna >= 1
+                                && nColumna <= cine1.salas[nSala - 1].butacas[0].length) {
+
+                            // Verificar si la butaca está ocupada
+                            if (cine1.salas[nSala - 1].butacas[nFila - 1][nColumna - 1].estaOcupada() == false) {
+                                // Solicitar al usuario el email del comprador
+                                System.out.print("Ingrese su email:");
+                                email = scanner.next();
+
+                                cine1.reservarButaca(nSala, nFila, nColumna, email);
+                                System.out.println("¡Reserva realizada con éxito!");
+                                System.out.println(
+                                        "Has reservado para ver la película " + cine1.salas[nSala].getPelicula().getTitulo()
+                                                + " en la fila " + nFila + " y columna " + nColumna + "." + "\n");
+                            } else {
+                                System.out.println("La butaca seleccionada ya está ocupada. Por favor, elija otra." + "\n");
+                            }
+                        } else {
+                            System.out.println("Fila o columna inválida." + "\n");
+                        }
+                    } else {
+                        System.out.println("Número de sala inválido." + "\n");
+                    }
+                    break;
+                case 3:
+                    // Solicitar al usuario el número de sala a mostrar
+                    System.out.print("Ingrese el número de sala para ver las butacas:");
+                    nSala = scanner.nextInt();
+
+                    // Verificar que el número de sala sea válido
+                    if (nSala >= 1 && nSala <= cine1.salas.length) {
+                        cine1.salas[nSala - 1].mostrarButacas();
+                    } else {
+                        System.out.println("Número de sala inválido." + "\n");
+                    }
+                    break;
                 case 4:
                     System.out.println("Saliendo del programa. ¡Hasta luego!");
                     seguir = false;
@@ -46,7 +99,6 @@ public class Main {
                     break;
                 default:
                     System.out.println("Opción no válida. Inténtalo de nuevo." + "\n");
-
             }
         }
     }
