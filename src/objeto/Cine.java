@@ -20,8 +20,10 @@ public class Cine {
     public int getAforo() {
         return aforo;
     }
-    public void setAforo(int aforo) {
-        this.aforo = aforo;
+    public void setAforo() {
+        for (int i = 0; i < salas.length; i++) {
+            this.aforo += salas[i].getNumButacas();
+        }
     }
     public Sala[] getSalas() {
         return salas;
