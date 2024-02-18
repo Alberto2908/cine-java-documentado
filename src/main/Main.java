@@ -6,6 +6,7 @@ import objeto.Cine;
 import objeto.Pelicula;
 import objeto.Sala;
 import objeto.Butaca;
+
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -31,6 +32,7 @@ public class Main {
         cine1.añadirSala(sala4);
         cine1.añadirSala(sala5);
         cine1.añadirSala(sala6);
+        cine1.setAforo();
 
         while (seguir) {
 
